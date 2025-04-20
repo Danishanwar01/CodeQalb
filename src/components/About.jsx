@@ -71,7 +71,7 @@ const About = () => {
     { name: 'Danish Anwar', role: 'CEO', photo: '/team1.jpg' },
     { name: 'Ehtesham Ahmed', role: 'CTO', photo: '/team2.jpg' },
     { name: 'Danish Anwar', role: 'Lead Developer', photo: '/team3.jpg' },
-    { name: 'Nehal Ahmed', role: 'Project Manager', photo: '/team4.jpg' },
+    { name: 'Divyansh Nishad', role: 'Project Manager', photo: '/team4.jpg' },
   ];
 
   // Updated journey timeline for a startup launched in 2025
