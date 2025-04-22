@@ -4,14 +4,10 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                       http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-  <!-- Home page -->
   <url>
     <loc>https://www.codeqalb.tech/</loc>
-    <lastmod>2025-04-21T12:06:04+00:00</lastmod>
+    <lastmod>2023-10-05</lastmod> <!-- Updated date -->
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Add more <url> entries here for other top‐level pages if needed -->
 </urlset>

@@ -1,77 +1,48 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
 
     <!-- ===== SITE ICONS ===== -->
-    <!-- Make sure logo.png and favicon.ico live in public/ -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="%PUBLIC_URL%/logo.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="%PUBLIC_URL%/logo.png"
-    />
-    <link
-      rel="shortcut icon"
-      href="%PUBLIC_URL%/favicon.ico"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo180.png" /> <!-- Fixed name -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo32.png" /> <!-- Added 32x32 logo -->
+    <link rel="shortcut icon" href="/favicon.ico" />
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
 
     <!-- ===== RESPONSIVE ===== -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
 
     <!-- ===== SEO META TAGS ===== -->
-    <title>
-      CodeQalb Tech – Web & Mobile App Development, Software Solutions, Logo Design & Digital Marketing
-    </title>
+    <title>CodeQalb Tech – Web & Mobile App Development, Software Solutions, Logo Design & Digital Marketing</title>
     <meta
       name="description"
-      content="CodeQalb Tech delivers end-to-end web development, mobile app development, software solutions, logo design, SEO optimization, social media & content marketing, online advertising, email campaigns & analytics."
+      content="CodeQalb Tech: Expert web & mobile app development, software solutions, logo design, SEO, social media marketing, and digital analytics."
     />
     <meta
       name="keywords"
-      content="web development, mobile apps, software solutions, logo design, digital marketing, SEO, social media marketing, content marketing, online advertising, email campaigns, analytics"
+      content="web development, mobile apps, software solutions, logo design, digital marketing, SEO, social media, content marketing"
     />
     <meta name="author" content="CodeQalb Tech Team" />
 
     <!-- ===== Open Graph / Facebook ===== -->
-    <meta property="og:type"        content="website" />
-    <meta property="og:url"         content="https://www.codeqalb.tech/" />
-    <meta property="og:title"       content="CodeQalb Tech – Web & Mobile App Development, Software Solutions, Logo Design & Digital Marketing" />
-    <meta property="og:description" content="CodeQalb Tech delivers end-to-end web development, mobile & software solutions, logo design, SEO, social media & analytics." />
-    <meta property="og:image"       content="%PUBLIC_URL%/logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.codeqalb.tech/" />
+    <meta property="og:title" content="CodeQalb Tech – Web & Mobile App Development, Software Solutions & Digital Marketing" />
+    <meta property="og:description" content="CodeQalb Tech: Expert web & mobile app development, software solutions, logo design, SEO, social media marketing, and digital analytics." />
+    <meta property="og:image" content="https://www.codeqalb.tech/logo.png" /> <!-- Absolute URL -->
 
     <!-- ===== Twitter Card ===== -->
-    <meta name="twitter:card"        content="summary_large_image" />
-    <meta name="twitter:url"         content="https://www.codeqalb.tech/" />
-    <meta name="twitter:title"       content="CodeQalb Tech – Web & Mobile App Development, Software Solutions, Logo Design & Digital Marketing" />
-    <meta name="twitter:description" content="CodeQalb Tech delivers end-to-end web development, mobile & software solutions, logo design, SEO, social media & analytics." />
-    <meta name="twitter:image"       content="%PUBLIC_URL%/logo.png" />
-
-    <!-- ===== JSON‑LD Organization Schema ===== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "url": "https://www.codeqalb.tech/",
-      "logo": "https://www.codeqalb.tech/logo.png"
-    }
-    </script>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.codeqalb.tech/" />
+    <meta name="twitter:title" content="CodeQalb Tech – Web & Mobile App Development & Digital Solutions" />
+    <meta name="twitter:description" content="CodeQalb Tech: Expert web & mobile app development, software solutions, logo design, SEO, social media marketing, and digital analytics." />
+    <meta name="twitter:image" content="https://www.codeqalb.tech/logo.png" /> <!-- Absolute URL -->
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!-- Your build will inject the proper JS bundle here -->
-    <script src="%PUBLIC_URL%/bundle.js"></script>
   </body>
 </html>
