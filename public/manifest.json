@@ -1,6 +1,7 @@
 {
   "short_name": "CodeQalb",
-  "name": "CodeQalb Tech – Web, Mobile & Blockchain Solutions",
+  "name": "CodeQalb Tech – Logo Design & Digital Marketing Solutions",
+  "description": "CodeQalb Tech delivers logo design, SEO optimization, social media marketing, content marketing, online advertising, email campaigns & analytics.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -9,7 +10,7 @@
       "purpose": "any"
     },
     {
-      "src": "logo.png",
+      "src": "new-logo.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any maskable"
