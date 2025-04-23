@@ -1,4 +1,13 @@
+# robots.txt for https://www.codeqalb.tech
+
 User-agent: *
+Disallow:
+
+
+# Disallow: /admin/
+
+
 Allow: /
 
+#  sitemap 
 Sitemap: https://www.codeqalb.tech/sitemap.xml
