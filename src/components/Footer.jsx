@@ -140,7 +140,7 @@ function Footer() {
           <p>
             2nd Floor, G-44, Kalindi Kunj Rd, above Duke Showroom, <br />
             near Central Bank of India, Shaheen Bagh, Okhla, <br />
-            New Delhi, Delhi 11002
+            New Delhi, Delhi 110025
           </p>
         </div>
 
