@@ -28,14 +28,17 @@
       name="apple-mobile-web-app-title"
       content="CodeQalb"
     />
-    <!-- your PWA manifest -->
-    <link
-      rel="manifest"
-      href="%PUBLIC_URL%/site.webmanifest"
-    />
 
-    <!-- fallback or CRA default manifest -->
-    <link rel="manifest" href="/manifest.json" />
+    <!-- PWA manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+
+    <!-- PWA polish meta tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
 
     <!-- Responsive -->
     <meta
