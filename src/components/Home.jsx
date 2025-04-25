@@ -18,6 +18,10 @@ import {
   FiGlobe,
   FiMic,
   FiMessageSquare,
+  FiShield,
+  FiActivity,
+  FiSettings,
+  FiRefreshCw
 
 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
@@ -52,11 +56,24 @@ const marketingServices = [
   { icon: <FiBarChart2 />, title: 'Analytics & Reporting', description: 'Data-driven insights to optimize strategy.' }
 ];
 
-const runningprojects =[
-{ icon: <FiSmartphone/>, title:'Trusted Experts at your Door', description: 'Book trusted professionals for beauty, repair, cleaning & more, all in one app.'},
-{ icon: <FiCode/>, title:'Luxora – Shop Fine Live Better',description:'Everything you need, just a click away.'},
-{ icon: <FiMessageSquare/>, title:'Real-Time Messaging for Everyone', description:'Online now – feel free to say hi!'},
-{ icon : <FiGlobe/>, title:'The Awaz – Hear the World Speak', description:'Global stories, local voices. Stay informed with news that resonates.'},
+const runningprojects = [
+  { icon: <FiSmartphone />, title: 'Trusted Experts at your Door', description: 'Book trusted professionals for beauty, repair, cleaning & more, all in one app.' },
+  { icon: <FiCode />, title: 'Luxora – Shop Fine Live Better', description: 'Everything you need, just a click away.' },
+  { icon: <FiMessageSquare />, title: 'Real-Time Messaging for Everyone', description: 'Online now – feel free to say hi!' },
+  { icon: <FiGlobe />, title: 'The Awaz – Hear the World Speak', description: 'Global stories, local voices. Stay informed with news that resonates.' },
+];
+
+const projectSteps = [
+  {  icon: <FiUsers />, title: 'Discovery', description: 'Engage stakeholders to capture vision, goals, scope, and potential risks.'},
+  { icon: <FiFileText />, title: 'Blueprint', description: 'Create a strategic plan with milestones, deliverables, resources, and change-control.'},
+  { icon: <FiShare2 />, title: 'Communication',description: 'Establish update cadences, channels, and feedback loops for full transparency.'},
+  { icon: <FiChevronRight />,title: 'Execution',description: 'Mobilize our team with proven methodologies, quality checks, and agile adaptation.' },
+  { icon: <FiCheck />, title: 'Delivery & Support',description: 'Deploy on time, on budget, and provide post-launch training and performance monitoring.'},
+  { icon: <FiShield />, title: 'Risk Management', description: 'Identify, assess, and mitigate risks to keep your project on solid ground.' },
+  {icon: <FiShare2 />,title: 'Communication', description: 'Establish update cadences, channels, and feedback loops for full transparency.' },
+  {icon: <FiActivity />, title: 'Quality Assurance', description: 'Perform rigorous testing and validation at every phase to ensure excellence.'},
+  { icon: <FiSettings />, title: 'Client Training', description: 'Equip your team with the knowledge and documentation for a seamless handoff.'},
+  { icon: <FiRefreshCw />, title: 'Continuous Improvement', description: 'Analyze performance data and implement refinements to maximize ROI.'}
 ];
 
 const Home = () => {
@@ -185,12 +202,28 @@ const Home = () => {
       padding: '80px 20px',
       backgroundColor: '#fff5e6',
       textAlign: 'center',
-    }
+    },
+    heading1Title: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '0.5rem',
+      fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
+      lineHeight: 1.2,
+      fontWeight: 400,
+      color: '#2F855A',
+      letterSpacing: '0.05em',
+      textTransform: 'uppercase',
+      fontVariantCaps: 'small-caps',
+      textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
+      marginBottom: isMobile ? '30px' : '40px'
+    },
+
   };
 
   return (
     <div style={styles.page}>
-      
+
       {/* Hero Section */}
       <section style={styles.hero}>
         <div style={styles.container}>
@@ -201,7 +234,7 @@ const Home = () => {
             Leverage cutting-edge technology solutions to drive your business forward.
           </p>
           <p style={styles.subheading}>
-          "Grow local, go global—turn your small shop into a bold online brand and turn connections into celebrations!"
+            "Grow local, go global—turn your small shop into a bold online brand and turn connections into celebrations!"
           </p>
           <div>
             <Link to="/services" style={styles.button}>
@@ -215,8 +248,8 @@ const Home = () => {
       </section>
 
 
-  {/* Core Services Slider */}
-  <section style={{ padding: '80px 0', backgroundColor: '#fff5e6' }}>
+      {/* Core Services Slider */}
+      <section style={{ padding: '80px 0', backgroundColor: '#fff5e6' }}>
         <div style={styles.container}>
           <h2 style={styles.sectionTitle}>Our Core Services</h2>
           <div style={styles.sliderWrapper}>
@@ -265,9 +298,9 @@ const Home = () => {
         </div>
       </section>
 
-    
-    {/* Running projects Section */}
-    <section style={{ padding: '80px 0', backgroundColor: '#fff' }}>
+
+      {/* Running projects Section */}
+      <section style={{ padding: '60px 0', backgroundColor: '#fff' }}>
         <div style={styles.container}>
           <h2 style={styles.sectionTitle}>In Progress at CodeQalb</h2>
           <div style={styles.grid}>
@@ -281,6 +314,36 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+
+
+     
+  {/* Project Management Section */}
+<section style={{ padding: '80px 0', backgroundColor: '#fff' }}>
+  <div style={styles.container}>
+    <h2 style={styles.sectionTitle}>
+      <FiBarChart2 style={{ marginRight: '0.5rem' }} />
+      Project Management Process
+    </h2>
+    <div style={styles.grid}>
+      {projectSteps.map((step, i) => (
+        <div key={i} style={styles.card}>
+          <div style={{ fontSize: '2rem', color: '#2F855A', marginBottom: '15px' }}>
+            {step.icon}
+          </div>
+          <h3 style={{ color: '#2d3748', marginBottom: '10px' }}>
+            {step.title}
+          </h3>
+          <p style={{ color: '#4a5568', lineHeight: '1.5' }}>
+            {step.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* CTA Section */}
       <section style={styles.ctaSection}>
