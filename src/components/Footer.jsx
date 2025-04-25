@@ -128,12 +128,12 @@ function Footer() {
           <p>
             Email: {' '}
             <a
-              href="mailto:contact@danwartech.com"
+              href="mailto:contactcodeqalb@gmail.com"
               style={styles.contactLink}
               onMouseEnter={(e) => (e.target.style.color = '#68D391')}
               onMouseLeave={(e) => (e.target.style.color = '#fff')}
             >
-              contact@CodeQalb.com
+              contactcodeqalb@gmail.com
             </a>{' '}
             • Phone: +916389616657 +91 93694 64481
           </p>

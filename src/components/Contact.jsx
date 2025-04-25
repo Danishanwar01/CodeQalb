@@ -73,7 +73,7 @@ function Contact() {
   };
 
   const phoneNumber = "+916389616657  +919369464481";
-  const email = "contact@CodeQalb.com";
+  const email = "contactcodeqalb@gmail.com";
   const socialLinks = [
     { icon: <FaFacebookF />,   url: "https://www.facebook.com/code.qalb?mibextid=ZbWKwL" },
     { icon: <FaWhatsapp />,    url: "https://wa.me/6389616657" },
