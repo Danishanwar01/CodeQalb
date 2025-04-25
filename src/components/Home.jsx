@@ -14,7 +14,11 @@ import {
   FiFileText,
   FiDollarSign,
   FiMail,
-  FiBarChart2
+  FiBarChart2,
+  FiGlobe,
+  FiMic,
+  FiMessageSquare,
+
 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
@@ -46,6 +50,13 @@ const marketingServices = [
   { icon: <FiDollarSign />, title: 'Online Advertising', description: 'Targeted PPC campaigns that deliver results.' },
   { icon: <FiMail />, title: 'Email Marketing', description: 'Personalized email campaigns that convert.' },
   { icon: <FiBarChart2 />, title: 'Analytics & Reporting', description: 'Data-driven insights to optimize strategy.' }
+];
+
+const runningprojects =[
+{ icon: <FiSmartphone/>, title:'Trusted Experts at your Door', description: 'Book trusted professionals for beauty, repair, cleaning & more, all in one app.'},
+{ icon: <FiCode/>, title:'Luxora – Shop Fine Live Better',description:'Everything you need, just a click away.'},
+{ icon: <FiMessageSquare/>, title:'Real-Time Messaging for Everyone', description:'Online now – feel free to say hi!'},
+{ icon : <FiGlobe/>, title:'The Awaz – Hear the World Speak', description:'Global stories, local voices. Stay informed with news that resonates.'},
 ];
 
 const Home = () => {
@@ -255,6 +266,21 @@ const Home = () => {
       </section>
 
     
+    {/* Running projects Section */}
+    <section style={{ padding: '80px 0', backgroundColor: '#fff' }}>
+        <div style={styles.container}>
+          <h2 style={styles.sectionTitle}>In Progress at CodeQalb</h2>
+          <div style={styles.grid}>
+            {runningprojects.map((item, i) => (
+              <div key={i} style={styles.card}>
+                <div style={{ fontSize: '2rem', color: '#2F855A', marginBottom: '15px' }}>{item.icon}</div>
+                <h3 style={{ color: '#2d3748', marginBottom: '10px' }}>{item.title}</h3>
+                <p style={{ color: '#4a5568' }}>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section style={styles.ctaSection}>
