@@ -106,6 +106,32 @@ const Home = () => {
     if (Math.abs(diff) > 50) (diff > 0 ? nextSlide() : prevSlide());
   };
 
+  const [currentProjectSlide, setCurrentProjectSlide] = useState(0);
+const maxProjectIndex = Math.max(0, projectSteps.length - visibleCards);
+const safeProjectSlide = Math.min(currentProjectSlide, maxProjectIndex);
+
+const nextProjectSlide = () =>
+  setCurrentProjectSlide((p) =>
+    p >= maxProjectIndex ? 0 : p + 1
+  );
+const prevProjectSlide = () =>
+  setCurrentProjectSlide((p) =>
+    p <= 0 ? maxProjectIndex : p - 1
+  );
+
+// Touch support for project slider
+const projTouchStartX = useRef(0);
+const projTouchEndX = useRef(0);
+const handleProjTouchStart = (e) =>
+  (projTouchStartX.current = e.targetTouches[0].clientX);
+const handleProjTouchMove = (e) =>
+  (projTouchEndX.current = e.targetTouches[0].clientX);
+const handleProjTouchEnd = () => {
+  const diff = projTouchStartX.current - projTouchEndX.current;
+  if (Math.abs(diff) > 50)
+    diff > 0 ? nextProjectSlide() : prevProjectSlide();
+};
+
   // Styles
   const styles = {
     /* prevent ANY horizontal scrolling on the page */
@@ -331,21 +357,60 @@ const Home = () => {
 
 
      
-  {/* Project Management Section */}
-  <section style={{ padding: '60px 0', backgroundColor: '#fff' }}>
-        <div style={styles.container}>
-          <h2 style={styles.sectionTitle}>Project Management Process</h2>
-          <div style={styles.grid}>
-            {projectSteps.map((item, i) => (
-              <div key={i} style={styles.card}>
-                <div style={{ fontSize: '2rem', color: '#2F855A', marginBottom: '15px' }}>{item.icon}</div>
-                <h3 style={{ color: '#2d3748', marginBottom: '10px' }}>{item.title}</h3>
-                <p style={{ color: '#4a5568' }}>{item.description}</p>
-              </div>
-            ))}
+ {/* Project Management Slider */}
+<section style={{ padding: '80px 0', backgroundColor: '#fff' }}>
+  <div style={styles.container}>
+    <h2 style={styles.sectionTitle}>Project Management Process</h2>
+    <div style={styles.sliderWrapper}>
+      {!isMobile && (
+        <button
+          style={{ ...styles.navButton, left: 10 }}
+          onClick={prevProjectSlide}
+        >
+          <FiChevronLeft />
+        </button>
+      )}
+
+      <div
+        style={{
+          ...styles.sliderContainer,
+          transform: `translateX(-${safeProjectSlide * actualCardWidth}px)`
+        }}
+        onTouchStart={handleProjTouchStart}
+        onTouchMove={handleProjTouchMove}
+        onTouchEnd={handleProjTouchEnd}
+      >
+        {projectSteps.map((item, i) => (
+          <div key={i} style={styles.featureCard}>
+            <div
+              style={{
+                fontSize: '2rem',
+                color: '#2F855A',
+                marginBottom: '15px'
+              }}
+            >
+              {item.icon}
+            </div>
+            <h3 style={{ color: '#2d3748', marginBottom: '10px' }}>
+              {item.title}
+            </h3>
+            <p style={{ color: '#4a5568' }}>{item.description}</p>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+
+      {!isMobile && (
+        <button
+          style={{ ...styles.navButton, right: 10 }}
+          onClick={nextProjectSlide}
+        >
+          <FiChevronRight />
+        </button>
+      )}
+    </div>
+  </div>
+</section>
+
 
 
 
