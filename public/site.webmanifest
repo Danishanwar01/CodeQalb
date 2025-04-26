@@ -38,6 +38,12 @@
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "300x300",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "start_url": "/",
