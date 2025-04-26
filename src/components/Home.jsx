@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   FiArrowRight,
   FiCheck,
@@ -16,13 +16,11 @@ import {
   FiMail,
   FiBarChart2,
   FiGlobe,
-  FiMic,
   FiMessageSquare,
   FiShield,
   FiActivity,
   FiSettings,
   FiRefreshCw
-
 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
@@ -76,6 +74,7 @@ const projectSteps = [
   { icon: <FiRefreshCw />, title: 'Continuous Improvement', description: 'Analyze performance data and implement refinements to maximize ROI.'}
 ];
 
+
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const windowWidth = useWindowWidth();
@@ -87,26 +86,34 @@ const Home = () => {
   const maxSlideIndex = Math.max(0, coreServices.length - visibleCards);
   const safeSlide = Math.min(currentSlide, maxSlideIndex);
 
-  const nextSlide = () => setCurrentSlide(prev => (prev >= maxSlideIndex ? 0 : prev + 1));
-  const prevSlide = () => setCurrentSlide(prev => (prev <= 0 ? maxSlideIndex : prev - 1));
+  const nextSlide = () =>
+    setCurrentSlide((prev) => (prev >= maxSlideIndex ? 0 : prev + 1));
+  const prevSlide = () =>
+    setCurrentSlide((prev) => (prev <= 0 ? maxSlideIndex : prev - 1));
 
-  const handleBookDemo = () => window.open('https://wa.me/6389616657', '_blank');
+  const handleBookDemo = () =>
+    window.open('https://wa.me/6389616657', '_blank');
 
   // Touch Support
   const touchStartXRef = useRef(null);
   const touchEndXRef = useRef(null);
-  const handleTouchStart = (e) => (touchStartXRef.current = e.targetTouches[0].clientX);
-  const handleTouchMove = (e) => (touchEndXRef.current = e.targetTouches[0].clientX);
+  const handleTouchStart = (e) =>
+    (touchStartXRef.current = e.targetTouches[0].clientX);
+  const handleTouchMove = (e) =>
+    (touchEndXRef.current = e.targetTouches[0].clientX);
   const handleTouchEnd = () => {
     const diff = touchStartXRef.current - touchEndXRef.current;
-    if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
+    if (Math.abs(diff) > 50) (diff > 0 ? nextSlide() : prevSlide());
   };
 
   // Styles
   const styles = {
+    /* prevent ANY horizontal scrolling on the page */
     page: {
       backgroundColor: '#fff5e6',
       fontFamily: 'sans-serif',
+      overflowX: 'hidden',
+      touchAction: 'pan-y' /* let vertical scroll but stop horizontal page–bounce */
     },
     container: {
       maxWidth: '1200px',
@@ -147,10 +154,12 @@ const Home = () => {
       alignItems: 'center',
       gap: '10px'
     },
+    /* clamp the slider so it can't overscroll */
     sliderWrapper: {
       overflow: 'hidden',
       position: 'relative',
-      marginTop: '60px'
+      marginTop: '60px',
+      overscrollBehaviorX: 'none' /* no bounce on the slider itself */
     },
     sliderContainer: {
       display: 'flex',
@@ -165,7 +174,7 @@ const Home = () => {
       minWidth: `${cardWidth}px`,
       margin: '0 10px',
       textAlign: 'center',
-      transition: 'transform 0.3s ease',
+      transition: 'transform 0.3s ease'
     },
     navButton: {
       position: 'absolute',
@@ -196,57 +205,45 @@ const Home = () => {
       borderRadius: '10px',
       padding: '20px',
       boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
-      textAlign: 'center',
+      textAlign: 'center'
     },
     ctaSection: {
       padding: '80px 20px',
       backgroundColor: '#fff5e6',
-      textAlign: 'center',
-    },
-    heading1Title: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: '0.5rem',
-      fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
-      lineHeight: 1.2,
-      fontWeight: 400,
-      color: '#2F855A',
-      letterSpacing: '0.05em',
-      textTransform: 'uppercase',
-      fontVariantCaps: 'small-caps',
-      textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
-      marginBottom: isMobile ? '30px' : '40px'
-    },
-
+      textAlign: 'center'
+    }
   };
 
   return (
     <div style={styles.page}>
-
       {/* Hero Section */}
       <section style={styles.hero}>
         <div style={styles.container}>
           <h1 style={styles.heading}>
-            Transform Your Business with <span style={{ color: '#2F855A' }}>Tech Solutions</span>
+            Transform Your Business with{' '}
+            <span style={{ color: '#2F855A' }}>Tech Solutions</span>
           </h1>
           <p style={styles.subheading}>
-            Leverage cutting-edge technology solutions to drive your business forward.
+            Leverage cutting-edge technology solutions to drive your business
+            forward.
           </p>
           <p style={styles.subheading}>
-            "Grow local, go global—turn your small shop into a bold online brand and turn connections into celebrations!"
+            "Grow local, go global—turn your small shop into a bold online
+            brand and turn connections into celebrations!"
           </p>
           <div>
             <Link to="/services" style={styles.button}>
               Get Started <FiArrowRight />
             </Link>
-            <button onClick={handleBookDemo} style={{ ...styles.button, backgroundColor: '#0a192f' }}>
+            <button
+              onClick={handleBookDemo}
+              style={{ ...styles.button, backgroundColor: '#0a192f' }}
+            >
               Book Demo <FiCheck />
             </button>
           </div>
         </div>
       </section>
-
 
       {/* Core Services Slider */}
       <section style={{ padding: '80px 0', backgroundColor: '#fff5e6' }}>
@@ -254,7 +251,10 @@ const Home = () => {
           <h2 style={styles.sectionTitle}>Our Core Services</h2>
           <div style={styles.sliderWrapper}>
             {!isMobile && (
-              <button style={{ ...styles.navButton, left: '10px' }} onClick={prevSlide}>
+              <button
+                style={{ ...styles.navButton, left: '10px' }}
+                onClick={prevSlide}
+              >
                 <FiChevronLeft />
               </button>
             )}
@@ -266,14 +266,27 @@ const Home = () => {
             >
               {coreServices.map((item, i) => (
                 <div key={i} style={styles.featureCard}>
-                  <div style={{ fontSize: '2rem', color: '#2F855A', marginBottom: '15px' }}>{item.icon}</div>
-                  <h3 style={{ color: '#2d3748', marginBottom: '10px' }}>{item.title}</h3>
+                  <div
+                    style={{
+                      fontSize: '2rem',
+                      color: '#2F855A',
+                      marginBottom: '15px'
+                    }}
+                  >
+                    {item.icon}
+                  </div>
+                  <h3 style={{ color: '#2d3748', marginBottom: '10px' }}>
+                    {item.title}
+                  </h3>
                   <p style={{ color: '#4a5568' }}>{item.description}</p>
                 </div>
               ))}
             </div>
             {!isMobile && (
-              <button style={{ ...styles.navButton, right: '10px' }} onClick={nextSlide}>
+              <button
+                style={{ ...styles.navButton, right: '10px' }}
+                onClick={nextSlide}
+              >
                 <FiChevronRight />
               </button>
             )}
@@ -281,7 +294,7 @@ const Home = () => {
         </div>
       </section>
 
-
+    
       {/* Marketing Section */}
       <section style={{ padding: '80px 0', backgroundColor: '#fff' }}>
         <div style={styles.container}>
