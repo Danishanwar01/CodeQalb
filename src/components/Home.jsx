@@ -319,29 +319,20 @@ const Home = () => {
 
      
   {/* Project Management Section */}
-<section style={{ padding: '80px 0', backgroundColor: '#fff' }}>
-  <div style={styles.container}>
-    <h2 style={styles.sectionTitle}>
-      <FiBarChart2 style={{ marginRight: '0.5rem' }} />
-      Project Management Process
-    </h2>
-    <div style={styles.grid}>
-      {projectSteps.map((step, i) => (
-        <div key={i} style={styles.card}>
-          <div style={{ fontSize: '2rem', color: '#2F855A', marginBottom: '15px' }}>
-            {step.icon}
+  <section style={{ padding: '60px 0', backgroundColor: '#fff' }}>
+        <div style={styles.container}>
+          <h2 style={styles.sectionTitle}>Project Management Process</h2>
+          <div style={styles.grid}>
+            {projectSteps.map((item, i) => (
+              <div key={i} style={styles.card}>
+                <div style={{ fontSize: '2rem', color: '#2F855A', marginBottom: '15px' }}>{item.icon}</div>
+                <h3 style={{ color: '#2d3748', marginBottom: '10px' }}>{item.title}</h3>
+                <p style={{ color: '#4a5568' }}>{item.description}</p>
+              </div>
+            ))}
           </div>
-          <h3 style={{ color: '#2d3748', marginBottom: '10px' }}>
-            {step.title}
-          </h3>
-          <p style={{ color: '#4a5568', lineHeight: '1.5' }}>
-            {step.description}
-          </p>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
 
 
