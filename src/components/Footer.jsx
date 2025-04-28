@@ -138,7 +138,7 @@ function Footer() {
             • Phone: +916389616657 +91 93694 64481
           </p>
           <p>
-            2nd Floor, G-44, Kalindi Kunj Rd, above Duke Showroom, <br />
+             G-44, Kalindi Kunj Rd, <br />
             near Central Bank of India, Shaheen Bagh, Okhla, <br />
             New Delhi, Delhi 110025
           </p>
