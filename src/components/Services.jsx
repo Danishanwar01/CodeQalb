@@ -11,22 +11,22 @@ const Services = () => {
       {...props}
       style={{
         ...props.style,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "48px",
-        height: "48px",
-        background: "#ffffff",
-        borderRadius: "50%",
-        border: "1px solid #2F855A",
-        right: "-80px",  
-        top: "50%",
-        transform: "translateY(-50%)",
+        display: "block",
+        width: "50px",
+        height: "50px",
+        right: "-55px",
+        top: "50%", 
+        background: "transparent",
+        border: "none",
+        cursor: "pointer",
         zIndex: 1,
-        boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+        transform: "translateY(-50%)", 
+        transition: "all 0.3s ease",
+        position: "absolute" 
       }}
+      className="slick-next-custom"
     >
-      <FiChevronRight size={30} color="#2F855A" />
+      <FiChevronRight size={40} color="#2F855A" />
     </button>
   );
   
@@ -35,27 +35,25 @@ const Services = () => {
       {...props}
       style={{
         ...props.style,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "48px",
-        height: "48px",
-        background: "#ffffff",
-        borderRadius: "50%",
-        border: "1px solid #2F855A",
-        left: "-80px",  
+        display: "block",
+        width: "50px",
+        height: "50px",
+        left: "-55px",
         top: "50%",
-        transform: "translateY(-50%)",
+        background: "transparent",
+        border: "none",
+        cursor: "pointer",
         zIndex: 1,
-        boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+        transform: "translateY(-50%)", 
+        transition: "all 0.3s ease",
+        position: "absolute" 
       }}
+      className="slick-prev-custom"
     >
-      <FiChevronLeft size={30} color="#2F855A" style={{alignItems:'center'}} />
+      <FiChevronLeft size={40} color="#2F855A" />
     </button>
   );
   
-  
-
   const styles = {
     hero: {
       backgroundColor: '#2F855A',
