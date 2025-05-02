@@ -1,8 +1,61 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { FiCheck, FiCode, FiSmartphone, FiCloud, FiUsers, FiDatabase, FiGlobe } from 'react-icons/fi';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { FiCheck, FiCode, FiSmartphone, FiCloud, FiUsers, FiDatabase, FiGlobe, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 const Services = () => {
+
+  const NextArrow = (props) => (
+    <button
+      {...props}
+      style={{
+        ...props.style,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "48px",
+        height: "48px",
+        background: "#ffffff",
+        borderRadius: "50%",
+        border: "1px solid #2F855A",
+        right: "-80px",  
+        top: "50%",
+        transform: "translateY(-50%)",
+        zIndex: 1,
+        boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+      }}
+    >
+      <FiChevronRight size={30} color="#2F855A" />
+    </button>
+  );
+  
+  const PrevArrow = (props) => (
+    <button
+      {...props}
+      style={{
+        ...props.style,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "48px",
+        height: "48px",
+        background: "#ffffff",
+        borderRadius: "50%",
+        border: "1px solid #2F855A",
+        left: "-80px",  
+        top: "50%",
+        transform: "translateY(-50%)",
+        zIndex: 1,
+        boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+      }}
+    >
+      <FiChevronLeft size={30} color="#2F855A" style={{alignItems:'center'}} />
+    </button>
+  );
+  
+  
+
   const styles = {
     hero: {
       backgroundColor: '#2F855A',
@@ -140,11 +193,21 @@ const Services = () => {
     speed: 500,
     slidesToShow: window.innerWidth > 768 ? 2 : 1,
     slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          slidesToShow: 1
+        }
+      }
+    ]
   };
 
   return (
     <div style={{ backgroundColor: '#fff5e6', minHeight: '100vh' }}>
-      {/* Hero Section */}
       <section style={styles.hero}>
         <div style={styles.container}>
           <h1 style={{ fontSize: '3.5rem', marginBottom: '20px' }}>
@@ -155,7 +218,7 @@ const Services = () => {
           </p>
         </div>
       </section>
-      {/* Services List */}
+
       <section style={{ padding: '40px 20px' }}>
         <div style={styles.container}>
           <Slider {...sliderSettings}>
@@ -190,7 +253,7 @@ const Services = () => {
           </Slider>
         </div>
       </section>
-      {/* CTA Section */}
+
       <section style={{ padding: '80px 20px', backgroundColor: '#2F855A' }}>
         <div style={{ ...styles.container, textAlign: 'center' }}>
           <h2 style={{ ...styles.sectionHeading, color: 'white' }}>
